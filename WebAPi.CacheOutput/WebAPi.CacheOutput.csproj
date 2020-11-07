@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE97E847-4F51-4100-986E-7AED47147C6C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebAPi.CacheOutput</RootNamespace>
+    <AssemblyName>WebAPi.CacheOutput</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\CacheExtensions.cs" />
+    <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\IApiOutputCache.cs" />
+    <Compile Include="Core\IModelQuery.cs" />
+    <Compile Include="Core\MemoryCacheDefault.cs" />
+    <Compile Include="Core\Time\CacheTime.cs" />
+    <Compile Include="Core\Time\ShortTime.cs" />
+    <Compile Include="Core\Time\SpecificTime.cs" />
+    <Compile Include="Core\Time\ThisDay.cs" />
+    <Compile Include="Core\Time\ThisMonth.cs" />
+    <Compile Include="Core\Time\ThisYear.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="V2\AutoInvalidateCacheOutputAttribute.cs" />
+    <Compile Include="V2\BaseCacheAttribute.cs" />
+    <Compile Include="V2\CacheOutputAttribute.cs" />
+    <Compile Include="V2\CacheOutputConfiguration.cs" />
+    <Compile Include="V2\DefaultCacheKeyGenerator.cs" />
+    <Compile Include="V2\HttpConfigurationExtensions.cs" />
+    <Compile Include="V2\ICacheKeyGenerator.cs" />
+    <Compile Include="V2\IgnoreCacheOutputAttribute.cs" />
+    <Compile Include="V2\InvalidateCacheOutputAttribute.cs" />
+    <Compile Include="V2\PerUserCacheKeyGenerator.cs" />
+    <Compile Include="V2\TimeAttributes\CacheOutputUntilAttribute.cs" />
+    <Compile Include="V2\TimeAttributes\CacheOutputUntilThisMonthAttribute.cs" />
+    <Compile Include="V2\TimeAttributes\CacheOutputUntilThisYearAttribute.cs" />
+    <Compile Include="V2\TimeAttributes\CacheOutputUntilToday.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
