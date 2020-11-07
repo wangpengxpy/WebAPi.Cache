@@ -2,4 +2,4 @@
 
 ### fork https://github.com/netcorepal/webapioutputcache
 
-### The official has not been updated, and the version stays at 5.2.3, this version is updated to 5.2.7
+### The official version stays at 5.2.3 and has not been updated, this migration version is updated to 5.2.7
