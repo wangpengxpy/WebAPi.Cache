@@ -1,5 +1,3 @@
-# WebAPi.Cache
-
 # notice that :
 
 ### fork https://github.com/netcorepal/webapioutputcache
